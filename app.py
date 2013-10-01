@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, request, render_template
 
-import data, url, excepts
+import data, excepts
 
 app = Flask(__name__)
 
@@ -18,8 +18,8 @@ def index():
     if request.method == "POST":
        if "url" in request.form:
            try:
-               encoded_url = url.encode(url) # encoding the url...
-               data.store(url, encoded_url)  # ... and storing it
+               # encodes and store the url:
+               encoded_url = data.store(url, encoded_url)
            except:
                return undefined_error()
     

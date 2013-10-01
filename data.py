@@ -1,7 +1,17 @@
-def store(url, encoded_url):
+def base_conv(n, input_base=10, output_base=62):
     """
-    Stores an url and its encoded version.
-    Returns True if success, raises Exception otherwise.
+    Converts a number n from base input_base to base output_base.
+    
+    The following symbols are used to represent numbers:
+    0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+    """
+    raise NotImplementedError()
+
+def store(url):
+    """
+    Calculates the encoded version of an url and stores the couple.
+
+    Returns url (string) if success, raises Exception otherwise.
     """
     raise NotImplementedError()
 

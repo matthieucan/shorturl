@@ -18,6 +18,7 @@ def store(url):
 def retrieve(encoded_url):
     """
     Retrieves an url, given its encoded version.
+    
     Returns an url (string) if success, raises Exception otherwise.
     """
     raise NotImplementedError()

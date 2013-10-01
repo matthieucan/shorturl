@@ -16,6 +16,3 @@ def index():
     #        return template(short=encode(request.form["url"]))
 
     return render_template("index.html")
-
-if __name__ == "__main__":
-    app.run(debug=True)

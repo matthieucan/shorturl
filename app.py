@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, render_template
 
 app = Flask(__name__)
 
@@ -11,22 +11,11 @@ def redir(url):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == "POST":
-        if "url" in request.form:
-            return template(short=encode(request.form["url"]))
+    #if request.method == "POST":
+    #    if "url" in request.form:
+    #        return template(short=encode(request.form["url"]))
 
-    return template()
-
-def template(short=None):
-    if short is None:
-        return """
-<form action="." method="post" name="form">
-  <input type="text" name="url" />
-  <input type="submit" value="Short it!" />
-</form>
-"""
-    else:
-        return short
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

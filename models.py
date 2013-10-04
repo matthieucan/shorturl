@@ -1,6 +1,4 @@
-from sqlalchemy import Column, ForeignKey, UniqueConstraint
-from sqlalchemy import Integer, String, Index, Enum, LargeBinary
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 
@@ -8,6 +6,7 @@ Base = declarative_base()
 
 class Url(Base):
     """ the table containing the urls, plus additional info """
+    
     __tablename__ = "urls"
     
     id = Column(Integer, primary_key=True)

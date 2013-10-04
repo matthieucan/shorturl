@@ -1,8 +1,6 @@
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
 
-
-Base = declarative_base()
+from db import Base
 
 class Url(Base):
     """ the table containing the urls, plus additional info """

@@ -18,7 +18,7 @@ def index():
     if request.method == "POST":
        if "url" in request.form:
            try:
-               # encodes and store the url:
+               # encodes and stores the url:
                encoded_url = data.store(url, encoded_url)
            except:
                return undefined_error()

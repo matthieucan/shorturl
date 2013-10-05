@@ -3,15 +3,6 @@ from flask import redirect, url_for, request, render_template
 from app import app
 import data, excepts
 
-@app.route("/<encoded_url>")
-def redir(encoded_url):
-    try:
-        url = data.retrieve(encoded_url)
-    except excepts.NotFoundException:
-        return notfound_error()
-    except:
-        return undefined_error()
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
@@ -23,6 +14,15 @@ def index():
                return undefined_error()
     
     return render_template("index.html")
+
+@app.route("/<encoded_url>")
+def redir(encoded_url):
+    try:
+        url = data.retrieve(encoded_url)
+    except excepts.NotFoundException:
+        return notfound_error()
+    except:
+        return undefined_error()
 
 # error handlers
 

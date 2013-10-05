@@ -17,6 +17,11 @@ class Url(Base):
     def store(self):
         session.add(self)
         session.commit()
+    
+    @staticmethod
+    def retrieve(id):
+        """ retrieves the url corresponding to id """
+        return session.query(Url).filter(Url.id == id).first()
         
     def __repr__(self):
         return str(self.id) + ": " + self.long_url

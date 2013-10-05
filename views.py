@@ -1,7 +1,8 @@
 from flask import redirect, url_for, request, render_template
 
 from app import app
-import url, excepts
+import excepts
+from url import base_conv
 from db import session
 from models import Url
 
@@ -20,7 +21,9 @@ def index():
 @app.route("/<encoded_url>")
 def redir(encoded_url):
     try:
-        url = data.retrieve(encoded_url)
+        id = base_conv(encoded_url, input_base=62, output_base=10)
+        url = Url.retrieve(id)
+        return redirect(url.long_url)
     except excepts.NotFoundException:
         return notfound_error()
     except:

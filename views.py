@@ -2,6 +2,8 @@ from flask import redirect, url_for, request, render_template
 
 from app import app
 import data, excepts
+from db import session
+from models import Url
 
 @app.route("/", methods=["GET", "POST"])
 def index():

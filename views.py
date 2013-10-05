@@ -10,12 +10,12 @@ def index():
     if request.method == "POST":
        if "url" in request.form:
            try:
-               # encodes and stores the url:
-               encoded_url = data.store(url, encoded_url)
+               # stores the url:
+               Url(request.form["url"]).store()
            except:
                return undefined_error()
     
-    return render_template("index.html")
+    return render_template("index.html", list=session.query(Url).all())
 
 @app.route("/<encoded_url>")
 def redir(encoded_url):

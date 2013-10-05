@@ -31,22 +31,6 @@ def base_conv(n, input_base=10, output_base=10):
     
     return result
 
-def store(url):
-    """
-    Calculates the encoded version of an url and stores the couple.
-
-    Returns url (string) if success, raises Exception otherwise.
-    """
-    raise NotImplementedError()
-
-def retrieve(encoded_url):
-    """
-    Retrieves an url, given its encoded version.
-    
-    Returns an url (string) if success, raises Exception otherwise.
-    """
-    raise NotImplementedError()
-
 if __name__ == "__main__":
     assert(base_conv(10) == "10")
     assert(base_conv(42) == "42")

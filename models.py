@@ -15,6 +15,7 @@ class Url(Base):
         self.long_url = long_url
     
     def store(self):
+        """ stores an url in the db """
         session.add(self)
         session.commit()
     

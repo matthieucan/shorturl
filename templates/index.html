@@ -4,12 +4,12 @@
     <title>Hello</title>
   </head>
   <body>
+    {% if short_url %}
+      <strong>{{ short_url }}</strong><br />
+    {% endif %}
     <form action="." method="post" name="form">
       <input type="text" name="url" />
       <input type="submit" value="Short it!" />
     </form>
-    {% for l in list %}
-    {{ l }}<br />
-    {% endfor %}
   </body>
 </html>

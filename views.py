@@ -8,15 +8,26 @@ from models import Url
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    short_url = None
     if request.method == "POST":
        if "url" in request.form:
            try:
-               # stores the url:
-               Url(request.form["url"]).store()
-           except:
+               # is the url already stored?
+               record = Url.retrieve_by_url(request.form["url"])
+               
+               if record is not None:
+                   id = record.id
+               else:
+                   # stores the url:
+                   id = Url(request.form["url"]).store()
+               
+               short_url = base_conv(id, input_base=10, output_base=62)
+           except Exception as e:
                return undefined_error()
     
-    return render_template("index.html", list=session.query(Url).all())
+    return render_template("index.html",
+                           short_url=short_url,
+                           )
 
 @app.route("/<encoded_url>")
 def redir(encoded_url):

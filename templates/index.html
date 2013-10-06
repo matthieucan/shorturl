@@ -6,12 +6,23 @@
 	  href="{{ url_for('static', filename='styles.css') }}" />
   </head>
   <body>
-    {% if short_url %}
-      <strong>{{ config["SHORT_URL_PREFIX"] + short_url }}</strong><br />
-    {% endif %}
-    <form action="." method="post" name="form">
-      <input type="text" name="url" />
-      <input type="submit" value="Short it!" />
-    </form>
+    <div id="wrapper">
+      <form action="." method="post" name="form">
+	<table>
+	  <tr>
+	    <td>
+	      <input type="text" name="url" id="input_url" />
+	    </td>
+	    <td>
+	      <input type="submit" value="Short it!" id="input_ok" />
+	    </td>
+	  </tr>
+	</table>
+      </form>
+      {% if short_url %}
+        {{ config["SHORT_URL_PREFIX"] + short_url }}
+      {% endif %}
+
+    </div>
   </body>
 </html>

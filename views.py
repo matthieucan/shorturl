@@ -1,3 +1,5 @@
+import random
+
 from flask import redirect, url_for, request, render_template
 
 from app import app
@@ -25,8 +27,11 @@ def index():
            except Exception as e:
                return undefined_error()
     
+    bg_color = random.choice(["pink", "#3366FF", "#00FF33", "#FFFF66",
+                              "#FF99FF"])
     return render_template("index.html",
                            short_url=short_url,
+                           bg_color=bg_color,
                            )
 
 @app.route("/<encoded_url>")

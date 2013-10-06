@@ -7,6 +7,7 @@
   </head>
   <body style="background-color: {{ bg_color }};">
     <div id="wrapper">
+      <h1>shrink.this.url</h1>
       <form action="." method="post" name="form">
 	<table>
 	  <tr>
@@ -20,9 +21,22 @@
 	</table>
       </form>
       {% if short_url %}
-        {{ config["SHORT_URL_PREFIX"] + short_url }}
+        <p>
+	  And this is your short link:
+          <em>
+	    <a href="{{ config["SHORT_URL_PREFIX"] + short_url }}">{{
+              config["SHORT_URL_PREFIX"] + short_url }}</a>
+	    </em>
+	</p>
       {% endif %}
-
+      <hr />
+      <footer>
+	[ <a href="https://github.com/matthieucan/urlshortener/">view
+	  source code</a> | 
+	<a href="https://github.com/matthieucan/urlshortener/COPYING">license</a>
+	| <a href="http://matthieu.io">whoami</a> 
+	]
+      </footer>
     </div>
   </body>
 </html>

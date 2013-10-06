@@ -5,7 +5,7 @@
   </head>
   <body>
     {% if short_url %}
-      <strong>{{ short_url }}</strong><br />
+      <strong>{{ config["SHORT_URL_PREFIX"] + short_url }}</strong><br />
     {% endif %}
     <form action="." method="post" name="form">
       <input type="text" name="url" />

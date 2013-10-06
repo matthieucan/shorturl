@@ -18,11 +18,17 @@ class Url(Base):
         """ stores an url in the db """
         session.add(self)
         session.commit()
+        return self.id
     
     @staticmethod
     def retrieve(id):
         """ retrieves the url corresponding to id """
         return session.query(Url).filter(Url.id == id).first()
+    
+    @staticmethod
+    def retrieve_by_url(url):
+        """ retrieves a record, given an url """
+        return session.query(Url).filter(Url.long_url == url).first()
         
     def __repr__(self):
         return str(self.id) + ": " + self.long_url

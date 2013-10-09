@@ -1,0 +1,5 @@
+#    -*- mode: org -*-
+
+* TODO change the algorithm to something unpredictable
+  Now it's only the url.id in base 62, not very good for privacy
+* TODO finish GAE integration
